@@ -1,0 +1,36 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://exr1dnsep251"
+path="res://.godot/imported/Walkway Oblique UltraBold.ttf-a81871a22d6f15e9b2f3ad2606dc0cfe.fontdata"
+
+[deps]
+
+source_file="res://fonts/walkway/Walkway Oblique UltraBold.ttf"
+dest_files=["res://.godot/imported/Walkway Oblique UltraBold.ttf-a81871a22d6f15e9b2f3ad2606dc0cfe.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+modulate_color_glyphs=false
+hinting=3
+subpixel_positioning=4
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

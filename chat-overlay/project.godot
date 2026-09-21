@@ -1,0 +1,60 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Chat Overlay"
+config/description="A chat overlay that works with Streamer.bot."
+config/version="1.0"
+run/main_scene="uid://cd1n40smbuvn5"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+config/icon="uid://bv5iey7d6quwa"
+
+[autoload]
+
+PassthroughManager="*uid://citmruyy05024"
+ImageCache="*uid://dxhyno2omgxy"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/resizable=false
+window/size/borderless=true
+window/size/always_on_top=true
+window/size/transparent=true
+window/energy_saving/keep_screen_on=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/per_pixel_transparency/allowed=true
+
+[dotnet]
+
+project/assembly_name="Chat Overlay"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/windows_mouse_passthrough/plugin.cfg")
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method.mobile="gl_compatibility"
+viewport/transparent_background=true
+renderer/size/initial_position=Vector2i(3310, 10)
+renderer/size/initial_position_type=0
+renderer/size/always_on_top=true
+renderer/size/resizable=true
+renderer/size/viewport_height=400
+renderer/size/viewport_width=500

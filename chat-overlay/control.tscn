@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cd1n40smbuvn5"]
+
+[ext_resource type="Script" uid="uid://d2ytevxpf7ag5" path="res://glass_window.gd" id="1_0fbet"]
+[ext_resource type="Script" uid="uid://bc4tfimam3o0b" path="res://chat_box.gd" id="2_62e2m"]
+[ext_resource type="Script" uid="uid://dlqo567an6wk3" path="res://scroll_container.gd" id="2_ee4bf"]
+
+[node name="GlassWindow" type="Control" unique_id=1000935896 node_paths=PackedStringArray("chat_box")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_0fbet")
+chat_box = NodePath("ScrollContainer/ChatBox")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1758909988]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -420.0
+offset_bottom = 320.0
+grow_horizontal = 0
+mouse_filter = 0
+mouse_force_pass_scroll_events = false
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("2_ee4bf")
+
+[node name="ChatBox" type="VBoxContainer" parent="ScrollContainer" unique_id=244703955]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+mouse_force_pass_scroll_events = false
+alignment = 2
+script = ExtResource("2_62e2m")

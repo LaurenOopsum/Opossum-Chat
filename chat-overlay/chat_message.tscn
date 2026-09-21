@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://bij40uqav34ad"]
+
+[ext_resource type="Script" uid="uid://wdrc7ghdbbts" path="res://twitch_message.gd" id="1_x63xj"]
+[ext_resource type="FontFile" uid="uid://bbhd5axl8jamh" path="res://fonts/highway_gothic/HWYGWDE.TTF" id="3_7bdti"]
+[ext_resource type="Script" uid="uid://dtgc1ppuld246" path="res://badges.gd" id="3_mlgxf"]
+[ext_resource type="Script" uid="uid://bw416ylovqq0k" path="res://user.gd" id="3_qvr0r"]
+[ext_resource type="Script" uid="uid://c8lkwn02ms4f1" path="res://message.gd" id="4_mlgxf"]
+[ext_resource type="FontFile" uid="uid://cp8nqckyvucjc" path="res://fonts/tt_chocolates/TT Chocolates Trial Medium.otf" id="5_7bdti"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlgxf"]
+bg_color = Color(1, 1, 1, 0.36078432)
+border_width_left = 8
+border_width_top = 3
+border_width_right = 5
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 0.36078432)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id="Theme_sa3iq"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_mlgxf")
+
+[node name="ChatMessage" type="PanelContainer" unique_id=508002320]
+custom_minimum_size = Vector2(390, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -19.0
+offset_right = 195.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+theme = SubResource("Theme_sa3iq")
+script = ExtResource("1_x63xj")
+
+[node name="Elements" type="VBoxContainer" parent="." unique_id=504447305]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="User" type="HBoxContainer" parent="Elements" unique_id=1537405212]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("3_qvr0r")
+
+[node name="UserName" type="RichTextLabel" parent="Elements/User" unique_id=140228700]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_fonts/normal_font = ExtResource("3_7bdti")
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "UserName"
+fit_content = true
+vertical_alignment = 1
+meta_underlined = false
+hint_underlined = false
+
+[node name="Badges" type="RichTextLabel" parent="Elements/User" unique_id=1463514185]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 1
+meta_underlined = false
+hint_underlined = false
+script = ExtResource("3_mlgxf")
+
+[node name="Message" type="RichTextLabel" parent="Elements" unique_id=1511643001]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("5_7bdti")
+bbcode_enabled = true
+text = "What does this look like?"
+fit_content = true
+script = ExtResource("4_mlgxf")
