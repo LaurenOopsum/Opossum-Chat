@@ -13,7 +13,7 @@ Before starting this chat overlay, Streamer.bot must be running its WebSocket Se
 Start Opossum Chat once the WebSocket Server is running. It won't look like anything once you've got it started, but if the icon is in the taskbar then it's running.
 
 ## OBS
-Use the Game Capture source to display Opossum Chat in OBS, *not* Window Capture.
+Use the Game Capture source to display Opossum Chat in OBS, *not* Window Capture, and check "Allow Transparency".
 
 ## Display Settings
 Opossum Chat is setup for a screen size of 1920x1080. I don't know how it'll react to different resolutions.
