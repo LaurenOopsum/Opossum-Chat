@@ -1,5 +1,5 @@
 ## About
-This overlay doesn't connect directly to Twitch, it connects to Streamer.bot's WebSocket server using Streamer.bot's default settings. 
+This overlay doesn't connect directly to Twitch, it connects to Streamer.bot's WebSocket server using Streamer.bot's default settings.
 
 ## To Run
 Before starting this chat overlay, Streamer.bot must be running its WebSocket Server.
@@ -9,6 +9,11 @@ Before starting this chat overlay, Streamer.bot must be running its WebSocket Se
 - Port: 8080
 - Endpoint: /
 - Authentication: Disabled
+
+Start Opossum Chat once the WebSocket Server is running. It won't look like anything once you've got it started, but if the icon is in the taskbar then it's running.
+
+## OBS
+Use the Game Capture source to display Opossum Chat in OBS, *not* Window Capture.
 
 ## Display Settings
 Opossum Chat is setup for a screen size of 1920x1080. I don't know how it'll react to different resolutions.
