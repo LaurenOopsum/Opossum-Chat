@@ -31,5 +31,6 @@ func set_user(user_data:Dictionary) :
 
 func set_username() :
 	$UserName.text = user_name
-	$UserName.self_modulate = color
+	if color && color != Color.BLACK :
+		$UserName.add_theme_color_override("default_color",color)
 	## would be fun to add the option for people to choose their own font

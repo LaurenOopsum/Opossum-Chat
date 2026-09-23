@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bij40uqav34ad"]
 
+[ext_resource type="StyleBox" uid="uid://ocvjgryrrk7q" path="res://style_boxes/message_box_bg.tres" id="1_lbbu2"]
 [ext_resource type="Script" uid="uid://wdrc7ghdbbts" path="res://twitch_message.gd" id="1_x63xj"]
 [ext_resource type="FontFile" uid="uid://bbhd5axl8jamh" path="res://fonts/highway_gothic/HWYGWDE.TTF" id="3_7bdti"]
 [ext_resource type="Script" uid="uid://dtgc1ppuld246" path="res://badges.gd" id="3_mlgxf"]
@@ -7,24 +8,11 @@
 [ext_resource type="Script" uid="uid://c8lkwn02ms4f1" path="res://message.gd" id="4_mlgxf"]
 [ext_resource type="FontFile" uid="uid://cp8nqckyvucjc" path="res://fonts/tt_chocolates/TT Chocolates Trial Medium.otf" id="5_7bdti"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mlgxf"]
-bg_color = Color(1, 1, 1, 0.36078432)
-border_width_left = 8
-border_width_top = 3
-border_width_right = 5
-border_width_bottom = 3
-border_color = Color(1, 1, 1, 0.36078432)
-border_blend = true
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
 [sub_resource type="Theme" id="Theme_sa3iq"]
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_mlgxf")
+PanelContainer/styles/panel = ExtResource("1_lbbu2")
 
 [node name="ChatMessage" type="PanelContainer" unique_id=508002320]
-custom_minimum_size = Vector2(390, 0)
+custom_minimum_size = Vector2(390, 38)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -54,7 +42,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 theme_override_fonts/normal_font = ExtResource("3_7bdti")
-theme_override_font_sizes/normal_font_size = 11
+theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
 text = "UserName"
 fit_content = true
@@ -80,6 +68,5 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("5_7bdti")
 bbcode_enabled = true
-text = "What does this look like?"
 fit_content = true
 script = ExtResource("4_mlgxf")
