@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://bij40uqav34ad"]
+
+[ext_resource type="Texture2D" uid="uid://o26rp2o8bp8d" path="res://images/free-to-use-nine-patch-rect-textures-v0-jlv0yj89wj1a1.webp" id="1_utqqg"]
+[ext_resource type="Script" uid="uid://dx56bv71jcaud" path="res://message/chat_message.gd" id="2_utqqg"]
+[ext_resource type="Script" uid="uid://bw416ylovqq0k" path="res://message/twitch_user.gd" id="3_h5q8x"]
+[ext_resource type="FontFile" uid="uid://cwchcjpe6byyy" path="res://fonts/MorrisRomanBlack.otf" id="5_nhlew"]
+[ext_resource type="Script" uid="uid://dtgc1ppuld246" path="res://message/badges.gd" id="6_etquo"]
+[ext_resource type="Texture2D" uid="uid://de6s31s13mr1b" path="res://images/youtube icon.png" id="7_8j8jm"]
+[ext_resource type="FontFile" uid="uid://dtup6tim3sybb" path="res://fonts/highway_gothic/HWYGOTH.TTF" id="8_jv8oe"]
+[ext_resource type="Script" uid="uid://c8lkwn02ms4f1" path="res://message/message_text.gd" id="9_30uw7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jiy4p"]
+content_margin_left = 18.0
+content_margin_top = 5.0
+content_margin_right = 15.0
+content_margin_bottom = 8.0
+texture = ExtResource("1_utqqg")
+texture_margin_left = 20.0
+texture_margin_top = 23.0
+texture_margin_right = 18.0
+texture_margin_bottom = 20.0
+region_rect = Rect2(4, 268, 128, 128)
+
+[sub_resource type="Theme" id="Theme_sa3iq"]
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_jiy4p")
+
+[node name="ChatMessage" type="PanelContainer" unique_id=508002320]
+custom_minimum_size = Vector2(390, 38)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -19.0
+offset_right = 195.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+theme = SubResource("Theme_sa3iq")
+script = ExtResource("2_utqqg")
+
+[node name="Elements" type="VBoxContainer" parent="." unique_id=504447305]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="User" type="HBoxContainer" parent="Elements" unique_id=1537405212]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("3_h5q8x")
+
+[node name="UserName" type="RichTextLabel" parent="Elements/User" unique_id=140228700]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/normal_font = ExtResource("5_nhlew")
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "UserName"
+fit_content = true
+vertical_alignment = 1
+meta_underlined = false
+hint_underlined = false
+
+[node name="Badges" type="RichTextLabel" parent="Elements/User" unique_id=1463514185]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 1
+meta_underlined = false
+hint_underlined = false
+script = ExtResource("6_etquo")
+
+[node name="YouTube" type="TextureRect" parent="Elements/User" unique_id=1548542658]
+visible = false
+layout_mode = 2
+texture = ExtResource("7_8j8jm")
+
+[node name="Message" type="RichTextLabel" parent="Elements" unique_id=1511643001]
+unique_name_in_owner = true
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.1764706, 0.12941177, 0.050980393, 1)
+theme_override_fonts/normal_font = ExtResource("8_jv8oe")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = " "
+fit_content = true
+script = ExtResource("9_30uw7")

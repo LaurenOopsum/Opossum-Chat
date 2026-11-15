@@ -5,4 +5,4 @@ extends ScrollContainer
 
 
 func scroll_down() :
-	scroll_vertical = get_v_scroll_bar().max_value
+	scroll_vertical = int(get_v_scroll_bar().max_value)

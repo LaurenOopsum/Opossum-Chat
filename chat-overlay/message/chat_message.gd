@@ -100,10 +100,20 @@ func return_to_chatbox() :
 			and is_instance_valid(original_parent):
 		reparent(original_parent, false)
 		original_parent.move_child(self, min(original_index, original_parent.get_child_count() - 1))
+	else : queue_free()
 
 
-func create_thyself(_data: Dictionary) :
-	pass
+func create_thyself(data: Dictionary, source:String) :
+	if source == "YouTube" : 
+		%User.set_script(load("res://message/youtube_user.gd"))
+		self_modulate = Color("ffffe3")
+	%User.set_user(data.get("user",{}))
+	%Message.set_message(data, source)
+
+
+func first_words_seal(meta:Dictionary) :
+	if meta["firstMessage"] :
+		%Initial.visible = true
 
 
 func fade_out() :
@@ -111,3 +121,8 @@ func fade_out() :
 	tween.tween_property(self,"modulate",Color.TRANSPARENT,0.5)
 	await tween.finished
 	tween.kill()
+	queue_free()
+
+
+func _on_script_changed() -> void:
+	%User.set_script(load("res://message/youtube_user.gd"))

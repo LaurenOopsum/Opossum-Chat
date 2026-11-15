@@ -5,7 +5,7 @@ extends Control
 # Streamer.bot WebSocket connection settings
 const WS_URL := "ws://127.0.0.1:8080/"
 
-signal chat_message_received(username: String, message: String, raw_data: Dictionary)
+#signal chat_message_received(username: String, message: String, raw_data: Dictionary)
 
 var socket := WebSocketPeer.new()
 var was_connected := false
@@ -19,6 +19,12 @@ func _ready() -> void:
 	if err != OK:
 		print("Error connecting to Streamer.bot: ", err)
 		set_process(false)
+	
+	## For debugging
+	var log_file := FileAccess.open("user://log.txt",FileAccess.WRITE_READ)
+	log_file.store_string("### NEW STREAM %s ###\n" % Time.get_datetime_string_from_system())
+	log_file.close()
+	## End debugging
 
 
 func _process(_delta: float) -> void:
@@ -53,8 +59,8 @@ func _subscribe_to_chat() -> void:
 		"request": "Subscribe",
 		"id": "chat-overlay-subscribe",
 		"events": {
-			"Twitch": ["ChatMessage"]#,
-		#	"YouTube": ["ChatMessage"]
+			"Twitch": ["ChatMessage"],
+			"YouTube": ["Message"]
 		}
 	}
 
@@ -85,7 +91,13 @@ func _handle_event(data: Dictionary) -> void:
 	var event_type: String = event_info.get("type", "")
 	var event_source: String = event_info.get("source", "")
 
-	if event_type != "ChatMessage":
-		return
-	
-	chat_box.create_chat_message(data.get("data", {}), event_source)
+	## For debugging
+	var log_file := FileAccess.open("user://log.txt",FileAccess.READ_WRITE)
+	log_file.store_string(log_file.get_as_text() + "\n" + str(data))
+	log_file.close()
+	## End debugging
+
+	match event_type :
+		# might be they can be handled together...
+		"ChatMessage", "Message" :
+			chat_box.create_chat_message(data.get("data", {}), event_source)
