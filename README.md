@@ -19,8 +19,9 @@ Use the Game Capture source to display Opossum Chat in OBS, *not* Window Capture
 Opossum Chat is setup for a screen size of 1920x1080. I don't know how it'll react to different resolutions.
 
 ## Functionality
-- Drag and drop chat messages from the chat box. They will remain in place and visible on the screen until returned to the chat box, at which point they'll disappear after 30 seconds like all other chat messages do.
-- Right click on a chat message to return it to the chat box.
+- Drag and drop chat messages from the chat box. They will remain in place and visible on the screen until returned to the chat box, at which point they'll disappear after 60 seconds like all other chat messages do.
+- Right click on a chat message you've moved to return it to the chat box.
+- Right click on a chat message in the chat box to delete it immediately.
 
 ## Web Access
 The chat overlay downloads emotes from Twitch and may request internet access for that purpose. It receives chat message information, including emote URLs, through Streamer.bot and only accesses the internet to download the images at the provided URLs.
